@@ -1,18 +1,17 @@
 N = int(input())
-arr = []
-for _ in range(N):
+time = []
+for i in range(0, N):
     s, e = map(int, input().split())
-    arr.append([s, e])
+    time.append([s, e])
 
-arr.sort(key=lambda x : [x[1], x[0]])
+time.sort(key=lambda x: [x[1], x[0]])
 
-end_time = arr[0][1]
+meeting = time[0]
 ans = 1
-for i in range(1, N):
-    start_time = arr[i][0]
-    if start_time < end_time:
-        continue
-    end_time = arr[i][1]
-    ans += 1
 
-print(ans)
+for t in range(1, N):
+    if(time[t][0] >= meeting[1]):
+        meeting = time[t]
+        ans += 1
+
+print(ans)  
