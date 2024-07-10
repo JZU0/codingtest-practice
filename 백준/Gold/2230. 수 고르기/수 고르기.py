@@ -14,11 +14,12 @@ result = []
 
 while True:
     gap = abs(arr[end]-arr[start])
-    if gap >= M:
+    if gap > M:
         start += 1
         result.append(gap)
     elif gap == M:
-        break
+        print(gap)
+        exit()
     else:
         end += 1
     if(end > N-1 or start > end):
