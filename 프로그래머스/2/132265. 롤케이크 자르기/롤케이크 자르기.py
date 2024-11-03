@@ -1,22 +1,20 @@
 def solution(topping):
-    right_count = {}
-    for t in topping:
-        if t in right_count:
-            right_count[t] += 1
-        else:
-            right_count[t] = 1
-
-    left_types = set()
+    temp = {}
+    left_temp = set()
     answer = 0
-
+    
     for t in topping:
-        left_types.add(t)
-        right_count[t] -= 1
-
-        if right_count[t] == 0:
-            del right_count[t]
-
-        if len(left_types) == len(right_count):
+        if t in temp:
+            temp[t] += 1
+        else:
+            temp[t] = 1
+            
+    for t in topping:
+        left_temp.add(t)
+        temp[t] -= 1
+        if(temp[t] == 0):
+            del temp[t]
+        if(len(left_temp)==len(temp)):
             answer += 1
 
     return answer
